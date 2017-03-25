@@ -1,0 +1,56 @@
+section {
+  padding: 6.25em 0;
+}
+
+.section-header.margin {
+  margin:0 0 3.9em 0;
+
+}
+
+.headline {
+  font-size: 1.8em;
+  &.margin {
+    margin-bottom: .4em;
+  }
+}
+
+a:visited {
+  color: inherit;
+}
+
+.refinement {
+  font-size: 1em;
+}
+
+.main-text {
+  font-size: .87em;
+  &.margin {
+    margin-bottom: 2.2em;
+  }
+}
+
+.light-text {
+  color: $light-text-color;
+}
+
+.color-text {
+  color: $color-text;
+}
+
+.dark-text {
+  color: $dark-text;
+}
+
+.main-button {
+  padding: 1.5em 2.6rem;
+  margin: 1em auto;
+  font-size: .81em;
+  display: inline-block;
+  text-transform: uppercase;
+  color: $color-text;
+  border: 2px solid;
+  background: transparent;
+  &:visited {
+    color: $color-text;
+  }
+}

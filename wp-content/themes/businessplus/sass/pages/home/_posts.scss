@@ -1,0 +1,48 @@
+.home-intro {
+  padding: 150px;
+  background: url("../images/2-layers.jpg") 50% 50% no-repeat;
+  background-size: cover;
+}
+
+.post-container {
+  padding: 3em 0;
+  border-bottom: 2px solid #e6e9ee;
+}
+
+.avatar-container img {
+  border-radius: 50%;
+}
+
+.posts-header {
+  margin-bottom: 20px;
+}
+
+.posts-headline {
+  margin-bottom: 10px;
+}
+
+.entry-title,
+.entry-title  {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+.entry-meta {
+  margin-bottom: 1em;
+}
+
+.img-container {
+  margin-bottom: 2em;
+}
+
+.entry-content {
+  margin: 0 auto 2em;
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+.addtoany_share_save_container {
+  float: left;
+  overflow: hidden;
+}

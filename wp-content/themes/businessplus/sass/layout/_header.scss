@@ -1,0 +1,27 @@
+.site-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index:100;
+}
+
+.main-nav {
+  border-bottom: 1px solid rgba(255,255,255,.5);
+}
+
+.menu-item {
+  padding: 1em 1rem;
+  a {
+    color: $light-text-color !important;
+    &:hover {
+      color: $color-text !important;
+    }
+  }
+}
+
+.current-menu-item {
+  a {
+    color: $color-text !important;
+  }
+}
