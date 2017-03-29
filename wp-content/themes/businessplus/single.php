@@ -13,8 +13,7 @@
  */
 
 get_header(); ?>
-
-
+<?php  ?>
     <section class="home-intro">
 
     </section>

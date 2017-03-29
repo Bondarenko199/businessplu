@@ -147,7 +147,7 @@ add_theme_support( 'custom-logo' );
  * Custom Posts
  **/
 
-function register_slider() {
+function register_my_post_types() {
 	$labels = array(
 		'name'               => _x( 'Slides', 'post type general name', 'gratia_theme' ),
 		'singular_name'      => _x( 'Slide', 'post type singular name', 'gratia_theme' ),
@@ -182,14 +182,81 @@ function register_slider() {
 	);
 
 	register_post_type( 'slide', $args );
-}
-add_action( 'init', 'register_slider' );
 
-///**
-// * remove p wraps
-// **/
-//
-//remove_filter('the_content', 'wpautop');
+	$labels = array(
+		'name'               => _x( 'Services', 'post type general name', 'deliver' ),
+		'singular_name'      => _x( 'Service', 'post type singular name', 'deliver' ),
+		'menu_name'          => _x( 'Services', 'admin menu', 'deliver' ),
+		'name_admin_bar'     => _x( 'Service', 'add new on admin bar', 'deliver' ),
+		'add_new'            => _x( 'Add New', 'service', 'deliver' ),
+		'add_new_item'       => __( 'Add New Service', 'deliver' ),
+		'new_item'           => __( 'New Service', 'deliver' ),
+		'edit_item'          => __( 'Edit Service', 'deliver' ),
+		'view_item'          => __( 'View Service', 'deliver' ),
+		'all_items'          => __( 'All Services', 'deliver' ),
+		'search_items'       => __( 'Search Services', 'deliver' ),
+		'parent_item_colon'  => __( 'Parent Service:', 'deliver' ),
+		'not_found'          => __( 'No service found.', 'deliver' ),
+		'not_found_in_trash' => __( 'No services found in Trash.', 'deliver' )
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'description'        => __( 'Description.', 'deliver' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'service' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	);
+
+	register_post_type( 'service', $args );
+
+	$labels = array(
+		'name'               => _x( 'Clients', 'post type general name', 'deliver' ),
+		'singular_name'      => _x( 'Client', 'post type singular name', 'deliver' ),
+		'menu_name'          => _x( 'Clients', 'admin menu', 'deliver' ),
+		'name_admin_bar'     => _x( 'Client', 'add new on admin bar', 'deliver' ),
+		'add_new'            => _x( 'Add New', 'client', 'deliver' ),
+		'add_new_item'       => __( 'Add New Client', 'deliver' ),
+		'new_item'           => __( 'New Client', 'deliver' ),
+		'edit_item'          => __( 'Edit Client', 'deliver' ),
+		'view_item'          => __( 'View Client', 'deliver' ),
+		'all_items'          => __( 'All Clients', 'deliver' ),
+		'search_items'       => __( 'Search Clients', 'deliver' ),
+		'parent_item_colon'  => __( 'Parent Client:', 'deliver' ),
+		'not_found'          => __( 'No client found.', 'deliver' ),
+		'not_found_in_trash' => __( 'No clients found in Trash.', 'deliver' )
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'description'        => __( 'Description.', 'deliver' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'client' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields' )
+	);
+
+	register_post_type( 'client', $args );
+}
+add_action( 'init', 'register_my_post_types' );
+
+
+show_admin_bar(false);
 
 /**
  * Implement the Custom Header feature.
