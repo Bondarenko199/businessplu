@@ -1,35 +1,16 @@
-body {
-  font: $font-main;
-  color: #585858;
-}
-
-section,
-.main-footer {
+section {
   padding: 6.25em 0;
 }
 
 .section-header.margin {
-  margin: 0 0 3.9em 0;
+  margin:0 0 3.9em 0;
 
 }
 
 .headline {
   font-size: 1.8em;
-  font: $font-headline-bold;
   &.margin {
-    margin-bottom: .2em;
-  }
-}
-
-.refinement {
-  font: 1em $font-refinement;
-}
-
-.main-text {
-  font-size: .87em;
-  line-height: 2em;
-  &.margin {
-    margin-bottom: 2.2em;
+    margin-bottom: .4em;
   }
 }
 
@@ -43,12 +24,19 @@ a:visited {
   height: auto;
 }
 
-.light-text {
-  color: $light-text;
+.refinement {
+  font-size: 1em;
 }
 
-.mid-tone-text {
-  color: $mid_tone-text !important;
+.main-text {
+  font-size: .87em;
+  &.margin {
+    margin-bottom: 2.2em;
+  }
+}
+
+.light-text {
+  color: $light-text-color;
 }
 
 .color-text {
@@ -59,32 +47,10 @@ a:visited {
   color: $dark-text;
 }
 
-.light-bg {
-  background: $light-bg;
-}
-
-.mid-tone-bg {
-  background: $mid_tone-bg;
-}
-
-.background-bg {
-  background: $color-bg;
-}
-
-.dark-bg {
-  background: $dark-bg;
-}
-
-.color-text_hover {
-  &:hover {
-    color: $color-text !important;
-  }
-}
-
 .main-button {
   padding: 1.5em 2.6rem;
   margin: 1em auto;
-  font: $font-button;
+  font-size: .81em;
   display: inline-block;
   text-transform: uppercase;
   color: $color-text;
@@ -93,8 +59,4 @@ a:visited {
   &:visited {
     color: $color-text;
   }
-}
-
-.border-bottom {
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
 }

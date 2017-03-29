@@ -8,67 +8,66 @@
  */
 
 if ( ! function_exists( 'businessplus_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function businessplus_setup() {
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on businessplus, use a find and replace
+	 * to change 'businessplus' to the name of your theme in all the template files.
 	 */
-	function businessplus_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on businessplus, use a find and replace
-		 * to change 'businessplus' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'businessplus', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'businessplus', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+	/*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+	/*
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 */
+	add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'businessplus' ),
-			'footer-menu' => esc_html__( 'Footer menu', 'businessplus' ),
-		) );
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'menu-1' => esc_html__( 'Primary', 'businessplus' ),
+	) );
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'businessplus_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'businessplus_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-	}
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+}
 endif;
 add_action( 'after_setup_theme', 'businessplus_setup' );
 
@@ -82,7 +81,6 @@ add_action( 'after_setup_theme', 'businessplus_setup' );
 function businessplus_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'businessplus_content_width', 640 );
 }
-
 add_action( 'after_setup_theme', 'businessplus_content_width', 0 );
 
 /**
@@ -101,7 +99,6 @@ function businessplus_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-
 add_action( 'widgets_init', 'businessplus_widgets_init' );
 
 /**
@@ -110,23 +107,36 @@ add_action( 'widgets_init', 'businessplus_widgets_init' );
 function businessplus_scripts() {
 	wp_enqueue_style( 'businessplus-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/layouts/bootstrap.css');
+
+	wp_enqueue_style( 'bootstrap-grid', get_template_directory_uri() . '/layouts/bootstrap-grid.css');
+
+	wp_enqueue_style( 'bootstrap-reboot', get_template_directory_uri() . '/layouts/bootstrap-reboot.css');
+
+	wp_enqueue_style( 'owl', get_template_directory_uri() . '/layouts/owl.carousel.css');
+
+	wp_enqueue_style( 'owl-defult', get_template_directory_uri() . '/layouts/owl.theme.default.css');
+
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/layouts/style.css');
+
+	wp_enqueue_script( 'jquery', get_template_directory_uri(), false, true );
+
 	wp_enqueue_script( 'businessplus-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'tether', get_template_directory_uri() . '/js/tether.min.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'tether', get_template_directory_uri() . '/js/tether.min.js', array() , false, true );
 
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( ), false, true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true );
 
-	wp_enqueue_script( 'owl.carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'owl.carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), false, true );
 
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), false, true );
 
-	wp_enqueue_script( 'business-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'businessplus-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'businessplus_scripts' );
 
 //custom logo
@@ -168,7 +178,6 @@ function register_my_post_types() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'taxonomies'         => array( 'category' ),
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
 	);
 
@@ -244,11 +253,10 @@ function register_my_post_types() {
 
 	register_post_type( 'client', $args );
 }
-
 add_action( 'init', 'register_my_post_types' );
 
 
-show_admin_bar( false );
+show_admin_bar(false);
 
 /**
  * Implement the Custom Header feature.

@@ -1,7 +1,7 @@
 .intro {
   padding: 19.5em 0 3.25em;
   position: relative;
-  background: url("./images/intro_bg.jpg") 50% 0% no-repeat;
+  background: url("../images/intro_bg.jpg") 50% 0% no-repeat;
   background-size: inherit;
   &:after {
     content: '';
@@ -14,19 +14,10 @@
   }
 }
 
-.slider-headline {
-  font: 3.75em $font-slider-headline;
-  &.margin {
-    margin: 0 0 .2em;
-  }
+.slider-header.margin {
+  margin: 0 0 1.2em;
 }
 
-.slider-text {
-  &.margin {
-    margin: 0 0 3.75em;
-  }
-}
-
-.slider-text p {
-  font: 1em $font-refinement;
+.slider-text.margin {
+  margin:0 0 3.8em;
 }

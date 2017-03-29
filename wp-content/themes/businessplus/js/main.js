@@ -11,25 +11,16 @@ jQuery(function($){
             smartSpeed: 1000
         });
 
-        $('#owlSecond').owlCarousel({
+        $('#owl-2').owlCarousel({
             items: 3,
             margin: 20,
-            loop: true,
-            nav: false,
-            navText: [],
-            smartSpeed: 500
-        });
-
-        $('#owl-3').owlCarousel({
-            items: 6,
             startPosition: 1,
             loop: true,
             nav: false,
             dots: true,
+            dotsEach: true,
             navText: [],
-            smartSpeed: 250
+            smartSpeed: 1000
         });
-
-        $('.footer-nav ul .page_item').addClass('fa fa-caret-right');
     });
 });
