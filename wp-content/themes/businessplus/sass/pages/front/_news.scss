@@ -1,0 +1,30 @@
+.news-container {
+  padding: 0 0 2.7em;
+  &.margin {
+    margin-bottom: 2.7em;
+  }
+}
+
+.news-headline {
+  font: 1em $font-slider-headline;
+  &.margin {
+    margin-bottom: 1em;
+  }
+}
+
+.news-date {
+  font: .8em $font-color-headline;
+  &.margin {
+    margin-bottom: 2.2em;
+  }
+}
+
+.news-text p {
+  line-height: 1.7em;
+}
+
+.news-img-container {
+  &.margin {
+    margin-bottom: 2em;
+  }
+}

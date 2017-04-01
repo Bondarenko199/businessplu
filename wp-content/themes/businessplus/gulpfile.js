@@ -1,4 +1,4 @@
-let gulp = require('gulp'),
+var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     rename = require('gulp-rename'),
@@ -10,22 +10,15 @@ let gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     del = require('del');
 
-let reload = browserSync.reload;
+var reload = browserSync.reload;
 
-let config = {
+var config = {
     'php': {
-        'src': './*.php'
+        'src': './**/*.php'
     },
     'sass': {
-        'src': [
-            './sass/**/*.scss',
-            './node_modules/bootstrap/scss/bootstrap.scss',
-            './node_modules/bootstrap/scss/bootstrap-grid.scss',
-            './node_modules/bootstrap/scss/bootstrap-reboot.scss',
-            './node_modules/owl.carousel/src/scss/owl.carousel.scss',
-            './node_modules/owl.carousel/src/scss/owl.theme.default.scss'
-        ],
-        'dest': './layouts/'
+        'src': './sass/**/*.scss',
+        'dest': './'
     },
     'js': {
         'src': [
@@ -41,18 +34,18 @@ let config = {
     }
 };
 
-gulp.task('php', function() {
+gulp.task('php', function () {
     return gulp.src(config.php.src)
-        .pipe(reload({stream:true}));
+        .pipe(reload({stream: true}));
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     gulp.src(config.sass.src)
         .pipe(sass())
         .pipe(autoprefixer({
             browsers: '> 5%',
             cascade: true
-              }))
+        }))
         .pipe(cssnano())
         .pipe(gulp.dest(config.sass.dest))
         .pipe(reload({stream: true}));
@@ -61,24 +54,24 @@ gulp.task('sass', function() {
 gulp.task('js', function () {
     return gulp.src(config.js.src)
         .pipe(gulp.dest(config.js.dest))
-        .pipe(reload({stream:true}));
+        .pipe(reload({stream: true}));
 });
 
-gulp.task('browser-sync', function() {
-    browserSync.init( {
+gulp.task('browser-sync', function () {
+    browserSync.init({
         notify: false,
         // reloadDelay: 1500,
         proxy: "localhost/businessplus/"
     });
 });
 
-gulp.task('watch',['browser-sync', 'php', 'sass', 'js'], function() {
+gulp.task('watch', ['browser-sync', 'php', 'sass', 'js'], function () {
     gulp.watch(config.php.src, ['php']);
     gulp.watch(config.sass.src, ['sass']);
     gulp.watch(config.js.src, ['js']);
 });
 
-gulp.task('img', function() {
+gulp.task('img', function () {
     return gulp.src(config.img.src)
         .pipe(cache(imagemin({
             interlaced: true,
@@ -89,7 +82,7 @@ gulp.task('img', function() {
         .pipe(gulp.dest(config.img.dest));
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', function () {
     return del.sync('dist');
 });
 
@@ -97,6 +90,6 @@ gulp.task('clear', ['img'], function () {
     return cache.clearAll();
 });
 
-gulp.task('build', ['php', 'sass', 'js', 'clear'], function() {
+gulp.task('build', ['php', 'sass', 'js'], function () {
 
 });

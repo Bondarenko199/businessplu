@@ -1,0 +1,38 @@
+.client-container {
+  padding: 2.25em .5rem;
+}
+
+.client-text {
+  p {
+    line-height: 1.7em;
+  }
+  &.margin {
+    margin-bottom: 2.8em;
+  }
+}
+
+.client-name {
+  &.margin {
+    font: .9em $font-slider-headline;
+    margin-bottom: .7em;
+  }
+}
+
+.client-position {
+  font-size: .9em;
+  &.margin {
+    margin-bottom: 1em;
+  }
+}
+
+.grey-quote-bg {
+  background: url("./images/grey-quote-bg.png") 5% 5% no-repeat;
+}
+
+.blue-quote-bg {
+  background: url("./images/blue-quote-bg.png") 5% 5% no-repeat;
+}
+
+.pink-quote-bg {
+  background: url("./images/pink-quote-bg.png") 5% 5% no-repeat;
+}

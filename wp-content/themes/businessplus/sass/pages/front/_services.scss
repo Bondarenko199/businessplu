@@ -1,0 +1,35 @@
+.services {
+  background: url("./images/serveces-bg.jpg") 50% 100% no-repeat;
+  background-size: cover;
+}
+
+.service {
+  &-container {
+    padding: .5em 1rem 2.4em;
+    position: relative;
+    &.margin {
+      margin-bottom: 2.4em;
+    }
+  }
+  &-headline {
+    font: 1em $font-slider-headline;
+    &.margin {
+      margin-bottom: 1.2em;
+    }
+  }
+  &-text p {
+    font-size: .9em;
+    line-height: 1.7em;
+  }
+  &-hover {
+    padding: 2rem .5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &:hover {
+      color: #36a8ff !important;
+    }
+  }
+}

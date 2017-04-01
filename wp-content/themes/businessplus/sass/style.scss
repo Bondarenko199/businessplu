@@ -1,8 +1,6 @@
 /*!
 Theme Name: businessplus
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
+Author: German
 Description: Description
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -20,92 +18,23 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@import "./variables-site/variables-site";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "../node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "../node_modules/owl.carousel/src/scss/owl.carousel.scss";
+@import "../node_modules/owl.carousel/src/scss/owl.theme.default.scss";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
 
-/*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
-@import "normalize";
 
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "typography/typography";
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/core";
 
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-@import "elements/elements";
+@import "./layout/header";
+@import "./layout/footer";
 
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-@import "forms/forms";
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-@import "navigation/navigation";
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/clearings";
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@import "site/site";
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
-
-@import "core";
-@import "layout/header";
-@import "layout/intro";
-@import "layout/about-us";
-@import "layout/_services";
-
+@import "./pages/front";
 @import "./pages/home";
 
 /*--------------------------------------------------------------

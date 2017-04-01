@@ -1,5 +1,19 @@
-$font__main: sans-serif;
-$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-$font__pre: "Courier 10 Pitch", Courier, monospace;
-$font__line-height-body: 1.5;
-$font__line-height-pre: 1.6;
+$s-serif: sans-serif;
+$serif: serif;
+
+$font-main: .9em "OpenSans", sans-serif;
+
+$font-slider-headline: "Raleway-ExtraBold", sans-serif;
+$font-refinement: "Lora-Italic", serif;
+$font-button: .85em "Raleway-Bold", sans-serif;
+$font-headline-bold: 1.87em "Raleway-Black", sans-serif;
+$font-color-headline: "OpenSans-Bold", sans-serif;
+$font-headline-semibold: "OpenSans-SemiBold", sans-serif;
+
+
+$font-headline-light: "Oswald-Light", sans-serif;
+$font-text: "ArialMT", sans-serif;
+$font-text-bold: "Arial-BoldMT", sans-serif;
+$font-headlines: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+
+$fa-font-path:"./fonts/FontAwesome";
