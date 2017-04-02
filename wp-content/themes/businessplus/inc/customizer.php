@@ -71,11 +71,19 @@ function businessplus_customize_register( $wp_customize ) {
 		'transport' => 'refresh',
 	) );
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_2_button_link', array(
-		'label'    => __( 'Button link', 'businessplus' ),
-		'section'  => 'section_2',
-		'settings' => 'section_2_button_link',
-		'type'     => 'dropdown-pages'
-	) ) );
+				'label'    => __( 'Button link', 'businessplus' ),
+				'section'  => 'section_2',
+				'settings' => 'section_2_button_link',
+				'type'     => 'radio',
+				'choices'  => array(
+//					'about us' => 'About Us',
+//					'services' => 'Services',
+//					'news' => 'News',
+//					'blog' => 'Blog',
+//					'pages' => 'Pages',
+//					'contact us' => 'Contact Us',
+					'About Us'
+				) ) ) );
 	$wp_customize->add_setting( 'section_2_custom_button_link', array(
 		'default'   => '',
 		'transport' => 'refresh',
@@ -94,79 +102,13 @@ function businessplus_customize_register( $wp_customize ) {
 		'section'  => 'section_2',
 		'settings' => 'section_2_button_text'
 	) ) );
-
-//Front section3
+	
+////Front section3
 	$wp_customize->add_section( 'section_3', array(
 		'title'    => __( 'Section 3', 'businessplus' ),
 		'panel'    => 'home_page_options',
 		'priority' => 20
 	) );
-
-
-	$wp_customize->add_setting( 'section_3_headline', array(
-		'default'   => 'Headline',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_3_headline', array(
-		'label'    => __( 'Section headline', 'businessplus' ),
-		'section'  => 'section_3',
-		'settings' => 'section_3_headline'
-	) ) );
-
-
-	$wp_customize->add_setting( 'section_3_refinement', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_3_refinement', array(
-		'label'    => __( 'Section refinement', 'businessplus' ),
-		'section'  => 'section_3',
-		'settings' => 'section_3_refinement'
-	) ) );
-
-
-	$wp_customize->add_setting( 'service_1', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'service_1', array(
-		'label'    => __( 'Service 1', 'businessplus' ),
-		'section'  => 'section_3',
-		'settings' => 'service_1'
-	) ) );
-
-
-	$wp_customize->add_setting( 'service_2', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'service_2', array(
-		'label'    => __( 'Service 2', 'businessplus' ),
-		'section'  => 'section_3',
-		'settings' => 'service_2'
-	) ) );
-
-
-	$wp_customize->add_setting( 'service_3', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'service_3', array(
-		'label'    => __( 'Service 3', 'businessplus' ),
-		'section'  => 'section_3',
-		'settings' => 'service_3'
-	) ) );
-
-
-	$wp_customize->add_setting( 'service_4', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'service_4', array(
-		'label'    => __( 'Service 4', 'businessplus' ),
-		'section'  => 'section_3',
-		'settings' => 'service_4'
-	) ) );
 
 
 	$wp_customize->add_setting( 'section_3_button_link', array(
@@ -177,8 +119,15 @@ function businessplus_customize_register( $wp_customize ) {
 		'label'    => __( 'Button link', 'businessplus' ),
 		'section'  => 'section_3',
 		'settings' => 'section_3_button_link',
-		'type'     => 'dropdown-pages',
-	) ) );
+		'type'     => 'radio',
+		'choices'  => array(
+			'about us' => 'About Us',
+			'services' => 'Services',
+			'news' => 'News',
+			'blog' => 'Blog',
+			'pages' => 'Pages',
+			'contact us' => 'Contact Us',
+		) ) ) );
 	$wp_customize->add_setting( 'section_3_custom_button_link', array(
 		'default'   => '',
 		'transport' => 'refresh',
@@ -198,7 +147,7 @@ function businessplus_customize_register( $wp_customize ) {
 		'settings' => 'section_3_button_text'
 	) ) );
 
-//Front section4
+	//Front section4
 	$wp_customize->add_section( 'section_4', array(
 		'title'    => __( 'Section 4', 'businessplus' ),
 		'panel'    => 'home_page_options',
@@ -210,7 +159,7 @@ function businessplus_customize_register( $wp_customize ) {
 		'default'   => 'Headline',
 		'transport' => 'refresh'
 	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_4_headline', array(
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_2_headline', array(
 		'label'    => __( 'Section headline', 'businessplus' ),
 		'section'  => 'section_4',
 		'settings' => 'section_4_headline'
@@ -221,164 +170,22 @@ function businessplus_customize_register( $wp_customize ) {
 		'default'   => '',
 		'transport' => 'refresh'
 	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_4_refinement', array(
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_2_refinement', array(
 		'label'    => __( 'Section refinement', 'businessplus' ),
 		'section'  => 'section_4',
 		'settings' => 'section_4_refinement'
 	) ) );
 
-//Front section5
-	$wp_customize->add_section( 'section_5', array(
-		'title'    => __( 'Section 5', 'businessplus' ),
-		'panel'    => 'home_page_options',
-		'priority' => 40
+
+//home
+	$wp_customize->add_section( 'home_sections', array(
+		'title'    => __( 'Home sections', 'businessplus' ),
+		'panel'    => 'home_options',
+		'priority' => 8
 	) );
 
+// Settings
 
-	$wp_customize->add_setting( 'section_5_headline', array(
-		'default'   => 'Headline',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_5_headline', array(
-		'label'    => __( 'Section headline', 'businessplus' ),
-		'section'  => 'section_5',
-		'settings' => 'section_5_headline'
-	) ) );
-
-
-	$wp_customize->add_setting( 'section_5_refinement', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_5_refinement', array(
-		'label'    => __( 'Section refinement', 'businessplus' ),
-		'section'  => 'section_5',
-		'settings' => 'section_5_refinement'
-	) ) );
-
-//Front section6
-	$wp_customize->add_section( 'section_6', array(
-		'title'    => __( 'Section 6', 'businessplus' ),
-		'panel'    => 'home_page_options',
-		'priority' => 50
-	) );
-
-
-	$wp_customize->add_setting( 'section_6_headline', array(
-		'default'   => 'Headline',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_6_headline', array(
-		'label'    => __( 'Section headline', 'businessplus' ),
-		'section'  => 'section_6',
-		'settings' => 'section_6_headline'
-	) ) );
-
-
-	$wp_customize->add_setting( 'section_6_refinement', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_6_refinement', array(
-		'label'    => __( 'Section refinement', 'businessplus' ),
-		'section'  => 'section_6',
-		'settings' => 'section_6_refinement'
-	) ) );
-
-//Front footer
-	$wp_customize->add_section( 'footer', array(
-		'title'    => __( 'Footer', 'businessplus' ),
-		'panel'    => 'home_page_options',
-		'priority' => 50
-	) );
-
-
-	$wp_customize->add_setting( 'social_1', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_1', array(
-		'label'    => __( 'First social network name', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_1'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_1_link', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_1_link', array(
-		'label'    => __( 'Link', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_1_link'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_2', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_2', array(
-		'label'    => __( 'Second social network name', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_2'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_2_link', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_2_link', array(
-		'label'    => __( 'Link', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_2_link'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_3', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_3', array(
-		'label'    => __( 'Third social network name', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_3'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_3_link', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_3_link', array(
-		'label'    => __( 'Link', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_3_link'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_4', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_4', array(
-		'label'    => __( 'Fourth social network name', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_4'
-	) ) );
-
-
-	$wp_customize->add_setting( 'social_4_link', array(
-		'default'   => '',
-		'transport' => 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_4_link', array(
-		'label'    => __( 'Link', 'businessplus' ),
-		'section'  => 'footer',
-		'settings' => 'social_4_link'
-	) ) );
 
 }
 
