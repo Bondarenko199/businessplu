@@ -21,7 +21,7 @@ get_header();
                             <h2 class="light-text col-md-6 slider-header margin"><?php the_title(); ?></h2>
                             <div class="light-text col-md-6 slider-text margin"><?php the_excerpt(); ?></div>
                         </div>
-                        <a href="<?php the_permalink() ?>" class="main-button">Read more</a>
+                        <a href="<?php the_permalink() ?>" class="main-button slider-button">Read more</a>
                     </div>
 				<?php endwhile; ?>
 			<?php else : //no posts ?>
