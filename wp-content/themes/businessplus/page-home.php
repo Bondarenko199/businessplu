@@ -22,7 +22,7 @@ get_header();
                             <h2 class="light-text col-md-6 col-sm-12 slider-headline margin"><?php the_title(); ?></h2>
                             <div class="light-text col-md-6 col-sm-12 slider-text margin"><?php the_excerpt(); ?></div>
                         </div>
-                        <a href="<?php the_permalink() ?>" class="main-button">Read more</a>
+                        <a href="<?php the_permalink() ?>" class="main-button dark-text slider-button">Read more</a>
                     </div>
 				<?php endwhile; ?>
 			<?php else : //no posts ?>
@@ -107,6 +107,7 @@ get_header();
 			<?php
 			$args = array(
 				'post_type' => 'client',
+				'posts_per_page' => 9
 			);
 
 			$the_query = new WP_Query( $args );
@@ -172,16 +173,23 @@ get_header();
 			foreach ( $news_posts as $post ) : setup_postdata( $post ); ?>
 				<?php if ( $post == $news_posts[0] ) : ?>
                     <li class="row w-50 float-left first-news-post">
-                        <div class="col-2 first-news-post-info">
-                            <span class="d-block"><?php echo get_the_date( 'd M-Y' ) ?></span>
-                            <span class="d-block"><?php the_author() ?></span>
-                            <span class="d-block"><?php comments_number(
-									$zero = 'No Com',
-									$more = '%-Com'
-								) ?></span>
-
-
-                        </div>
+                        <ul class="col-2 first-news-post-info-container">
+                            <li class="d-block first-news-post-info margin first-news-post-info-border">
+                                <span class="d-block text-right first-news-post-day"><?php echo get_the_date( 'd ' ) ?></span>
+                                <span class="d-block first-news-post-year"><?php echo get_the_date( 'M-Y' ) ?></span>
+                            </li>
+                            <li class="d-block first-news-post-info margin first-news-post-info-border">
+                                <i class="fa fa-comments-o fa-3x"></i>
+                                <span class="d-block"><?php comments_number(
+		                                $zero = 'No Com',
+		                                $more = '%-Com'
+	                                ) ?></span>
+                            </li>
+                            <li class="d-block first-news-post-info margin">
+                                <i class="fa fa-eye fa-3x"></i>
+                                <span class="d-block"><?php if(function_exists('the_views')) { the_views(); } ?></span>
+                            </li>
+                        </ul>
                         <div class="col-10">
                             <div class="news-img-container margin">
                                 <a href="<?php the_permalink(); ?>">
@@ -191,7 +199,9 @@ get_header();
                                 </a>
 
                             </div>
-                            <h3 class="dark-text news-headline margin"><?php the_title() ?></h3>
+                            <a href="<?php the_permalink() ?>">
+                                <h3 class="dark-text news-headline margin"><?php the_title() ?></h3>
+                            </a>
                             <div class="news-text"><?php the_excerpt(); ?></div>
                         </div>
                     </li>
@@ -199,7 +209,9 @@ get_header();
                     <li class="w-50 float-md-right news-container margin <?php if ( $post == $news_posts[1] ) {
 						echo 'border-bottom';
 					}; ?>">
-                        <h3 class="dark-text news-headline margin"><?php the_title() ?></h3>
+                        <a href="<?php the_permalink() ?>">
+                            <h3 class="dark-text news-headline margin"><?php the_title() ?></h3>
+                        </a>
                         <span class="d-block color-text news-date margin"><?php echo get_the_date( 'd-M-Y' ) ?></span>
                         <div class="news-text"><?php the_excerpt(); ?></div>
                     </li>
@@ -220,6 +232,8 @@ get_header();
 			$args = array(
 				'post_type'     => 'slide',
 				'category_name' => 'partners-slides',
+
+				'posts_per_page' => 18
 			);
 
 			$the_query = new WP_Query( $args );

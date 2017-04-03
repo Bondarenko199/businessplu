@@ -13,7 +13,7 @@
 <footer class="dark-bg main-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 footer-element margin">
                 <span class="d-block footer-logo-container margin">
                     <?php echo get_custom_logo() ?>
                 </span>
@@ -27,15 +27,18 @@
 					) ) ?>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 footer-element margin">
+                <h2 class="text-uppercase light-text footer-headline margin"><?php echo __('Navigation') ?></h2>
 				<?php wp_nav_menu( array(
 					'menu_class'     => 'd-flex flex-column footer-nav',
 					'theme_location' => 'menu-footer',
 					'menu_id'        => '',
-					'before'         => '>'
 				) ); ?>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-5 footer-element margin">
+                <h2 class="text-uppercase light-text footer-headline margin"><?php echo __('Quick contact us') ?></h2>
+                <?php echo do_shortcode('[contact-form-7 id="248" title="Footer Form"]') ?>
+            </div>
         </div>
     </div>
 </footer>

@@ -46,6 +46,11 @@ get_header(); ?>
 						 */
 						get_template_part( 'template-parts/content', get_post_format() );
 
+						if ( comments_open() || get_comments_number() ) :
+							comments_template();
+						endif;
+
+
 					endwhile;
 
 					the_posts_navigation();

@@ -1,6 +1,6 @@
 .home-intro {
-  padding: 150px;
-  background: url("../images/2-layers.jpg") 50% 50% no-repeat;
+  min-height: 18.75em;
+  background: url("./images/2-layers.jpg") 50% 50% no-repeat;
   background-size: cover;
 }
 
@@ -21,9 +21,8 @@
   margin-bottom: 10px;
 }
 
-.entry-title,
-.entry-title  {
-  font-size: 1.1em;
+.entry-title {
+  font: 1.1em $font-slider-headline;
   margin-bottom: 1em;
 }
 
@@ -35,10 +34,12 @@
   margin-bottom: 2em;
 }
 
-.entry-content {
+.post-text-container {
   margin: 0 auto 2em;
   p {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+    font-size: .9em;
+    line-height: 1.7em;
   }
 }
 
@@ -46,3 +47,36 @@
   float: left;
   overflow: hidden;
 }
+
+.comment-container {
+  padding-top: 1em;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.comment-reply-link {
+  display: block;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 2px solid $color-bg;
+  background: url("./images/reply-icon.png") 50% 50% no-repeat;
+  background-size: inherit;
+}
+
+.comment-meta {
+  margin-bottom: 1.5em;
+  .meta-link {
+    font: .9em $font-slider-headline;
+  }
+}
+
+.comment-text {
+  p {
+    line-height: 1.7em;
+    margin-bottom: 2em;
+  }
+}
+
+.comments-area {}

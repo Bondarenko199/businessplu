@@ -1,6 +1,19 @@
+.footer-element {
+  &.margin {
+    margin-bottom: 2em;
+  }
+}
+
 .footer-logo-container {
   &.margin {
     margin-bottom: 1.5em;
+  }
+}
+
+.footer-headline {
+  font: 1.3em $font-footer-headline;
+  &.margin {
+    margin-bottom: 2em;
   }
 }
 
@@ -60,4 +73,12 @@
 
 .fa.fa-caret-right:hover:before {
   color: $mid-tone-text;
+}
+
+.form {
+  &-element {
+    padding: 1.25em 1rem;
+    color: $color-text;
+    border: 1px solid rgba(255, 255, 255, .2);
+  }
 }

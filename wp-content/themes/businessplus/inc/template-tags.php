@@ -15,17 +15,20 @@ if ( ! function_exists( 'blog_name_posted_on' ) ) :
 	function businessplus_posted_on() {
 		$sticky_mod = get_theme_mod( 'post_meta_settings' ) == '1' ? the_title() : '';
 
-		$time_string = '<time class="d-block entry-date" datetime="%1$s">
-			<span class="d-block text-center dark-text color-text-hover day">%2$s</span>
+		$time_string = '<time class="entry-date" datetime="%1$s">
+			<span class="mid-tone-text day">%2$s</span>
 		</time>';
 
 		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'd-M-Y' ) ),
-			esc_html( get_the_date( 'd-M-Y' ) )
+			esc_attr( get_the_date( 'F-d-Y' ) ),
+			esc_html( get_the_date( 'F-d-Y' ) )
 		);
 
+		$author = sprintf(
+			esc_html( get_the_author() ) );
+
 		$posted_on = sprintf(
-			'<a href="' . esc_url( get_permalink() ) . '" class="d-block mid-tone-bg date-link" rel="bookmark">' . $time_string . $sticky_mod . '</a> '
+			'<span class="d-block date-link" rel="bookmark">Posted by ' . $author . ', ' . $time_string . '</span>'
 		);
 
 		echo $posted_on;

@@ -1,64 +1,75 @@
 <?php
 /**
- * The template for displaying 404 pages (not found)
+ * The main template file
  *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package businessplus
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'businessplus' ); ?></h1>
-				</header><!-- .page-header -->
+    <section class="home-intro">
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'businessplus' ); ?></p>
+    </section>
+    <section class="posts">
+        <div class="container">
+            <ul class="posts-list">
 
-					<?php
-						get_search_form();
+				<?php if ( have_posts() ) :
 
-						the_widget( 'WP_Widget_Recent_Posts' );
+					if ( ! is_home() && ! is_front_page() ) : ?>
+                        <header>
+                            <h1 class="headline dark-text"><?php single_post_title(); ?></h1>
+                        </header>
 
-						// Only show the widget if site has multiple categories.
-						if ( businessplus_categorized_blog() ) :
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'businessplus' ); ?></h2>
-						<ul>
 						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
+					endif;
+
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
+
+						/*
+						 * Include the Post-Format-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+						get_template_part( 'template-parts/content', 'page');
+
+					endwhile; ?>
+
+                    <!--					--><?php //the_posts_navigation(); ?>
+
+                    <div class="pag-wrap col-sm-12 center-xs">
+						<?php
+						global $wp_query;
+
+						$big = 999999999; // need an unlikely integer
+
+						echo paginate_links( array(
+							'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+							'format'    => '?paged=%#%',
+							'total'     => $wp_query->max_num_pages,
+							'prev_text' => '',
+							'next_text' => ''
+						) );
 						?>
-						</ul>
-					</div><!-- .widget -->
+                    </div>
 
-					<?php
-						endif;
+				<?php else :
 
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'businessplus' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+					get_template_part( 'template-parts/content', 'none' );
 
-						the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				endif; ?>
+            </ul>
+        </div>
+    </section>
 
 <?php
 get_footer();
