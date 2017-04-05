@@ -16,9 +16,9 @@ if ( ! function_exists( 'blog_name_posted_on' ) ) :
 		$sticky_mod = get_theme_mod( 'post_meta_settings' ) == '1' ? the_title() : '';
 
 		$time_string = '<time class="entry-date" datetime="%1$s">
-			<span class="mid-tone-text day">%2$s</span>
+			<span class="mid-tone-text day">%2$s</span> 
 		</time>';
-
+ // линки должны быть на автора и на дату, которые ведут в архив
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'F-d-Y' ) ),
 			esc_html( get_the_date( 'F-d-Y' ) )
@@ -130,6 +130,7 @@ if ( ! function_exists( 'custom_button' ) ) :
 		$button_text = get_theme_mod( $links['button_text'] );
 
 		if ( $custom_link ) :
+			// у тебя же тут чистый пхп код, альтернативный синтаксис не нужен. Printf используешь неправильно, мы говорили об этом на уроке
 			printf( '<a href="' . $custom_link . '" class="main-button">' . $button_text . '</a>' );
 		else :
 			printf( '<a href="' . $dropdown_link . '" class="main-button">' . $button_text . '</a>' );

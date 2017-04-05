@@ -22,7 +22,7 @@ get_header();
                             <h2 class="light-text col-md-6 col-sm-12 slider-headline margin"><?php the_title(); ?></h2>
                             <div class="light-text col-md-6 col-sm-12 slider-text margin"><?php the_excerpt(); ?></div>
                         </div>
-                        <a href="<?php the_permalink() ?>" class="main-button dark-text slider-button">Read more</a>
+                        <a href="<?php the_permalink() ?>" class="main-button dark-text slider-button">Read more</a> <?php // желательно всегда использовать __() функции и тд для статического текста, но у тебя текст на кнопке должен быть динамическим?>
                     </div>
 				<?php endwhile; ?>
 			<?php else : //no posts ?>
@@ -36,6 +36,7 @@ get_header();
         <div class="row d-flex">
             <div class="col-md-5 col-sm-12 section-header margin">
                 <h2 class="headline margin"><?php echo get_theme_mod( 'section_2_headline' ) ?></h2>
+                <?php // а если значения пустые придут, то что, будут пустые блоки? ?>
                 <span class="refinement"><?php echo get_theme_mod( 'section_2_refinement' ) ?></span>
             </div>
             <div class="col-md-7 col-sm-12">
@@ -78,6 +79,7 @@ get_header();
                                 <div class="service-text"><?php the_excerpt(); ?></div>
                             </div>
                         </div>
+                        <?php // в основном сервисы только визуальная инфа, так что линка не нужна ?>
                         <a href="<?php the_permalink() ?>" class="service-hover mid-tone-text fa fa-<?php echo sanitize_title_with_dashes( get_theme_mod( 'service_' . $count ) );
 						if ( $count == 4 ) {
 							$count = 0;
@@ -89,6 +91,7 @@ get_header();
 			wp_reset_postdata(); ?>
         </ul>
 		<?php
+        // задумка неплохая
 		custom_button( array(
 			'custom_link'   => 'section_3_custom_button_link',
 			'dropdown_link' => 'section_3_button_link',
@@ -117,9 +120,10 @@ get_header();
 				while ( $the_query->have_posts() ) :
 					$count ++;
 					?>
-                    <div class="client-container <?php
+                    <div class="client-container <?php // делать свич внутри класса не очень читабельно, лучше выносить такие штуки
 					switch ( $count ) {
-						case( 1 ):
+						// скобки для цифер можно не ставить
+					    case( 1 ):
 							echo 'grey-quote-bg';
 							break;
 						case( 2 ):
@@ -136,6 +140,7 @@ get_header();
                         <div class="row client-info">
                             <div class="rounded-circle col-md-3 client-img-container margin">
 								<?php
+                                // сначала проверяй есть ли миниатюра
 								the_post_thumbnail( 'medium', array(
 									'class' => 'img-responsive'
 								) );
@@ -148,7 +153,7 @@ get_header();
                         </div>
                     </div>
 				<?php endwhile; ?>
-			<?php else : //no posts ?>
+			<?php else : //no posts // если нет этого условия, то нет смысла писать его?>
 			<?php endif;
 			wp_reset_postdata(); ?>
         </div>
@@ -169,6 +174,7 @@ get_header();
 				'category_name'  => 'news'
 			);
 
+			// не могу понять чего ты надумал тут использовать get_posts если везде используешь wp_query
 			$news_posts = get_posts( $args );
 			foreach ( $news_posts as $post ) : setup_postdata( $post ); ?>
 				<?php if ( $post == $news_posts[0] ) : ?>
@@ -176,7 +182,8 @@ get_header();
                         <ul class="col-2 first-news-post-info-container">
                             <li class="d-block first-news-post-info margin first-news-post-info-border">
                                 <span class="d-block text-right first-news-post-day"><?php echo get_the_date( 'd ' ) ?></span>
-                                <span class="d-block first-news-post-year"><?php echo get_the_date( 'M-Y' ) ?></span>
+                                <span class="d-block first-news-post-year"><?php // используй функции the_date() для вывода
+                                    echo get_the_date( 'M-Y' ) ?></span>
                             </li>
                             <li class="d-block first-news-post-info margin first-news-post-info-border">
                                 <i class="fa fa-comments-o fa-3x"></i>
@@ -187,7 +194,8 @@ get_header();
                             </li>
                             <li class="d-block first-news-post-info margin">
                                 <i class="fa fa-eye fa-3x"></i>
-                                <span class="d-block"><?php if(function_exists('the_views')) { the_views(); } ?></span>
+                                <span class="d-block"><?php // не понял зачем ты используешь проверку на функцию тут
+                                    if(function_exists('the_views')) { the_views(); } ?></span>
                             </li>
                         </ul>
                         <div class="col-10">
@@ -257,3 +265,5 @@ get_header();
 </section>
 
 <?php get_footer() ?>
+
+<?php // все довольно хорошо ?>
