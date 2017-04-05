@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * businessplus functions and definitions
  *
@@ -182,6 +182,7 @@ function register_my_post_types() {
 		'add_new'            => _x( 'Add New', 'service', 'deliver' ),
 		'add_new_item'       => __( 'Add New Service', 'deliver' ),
 		'new_item'           => __( 'New Service', 'deliver' ),
+		// deliver это явно не с этой темы
 		'edit_item'          => __( 'Edit Service', 'deliver' ),
 		'view_item'          => __( 'View Service', 'deliver' ),
 		'all_items'          => __( 'All Services', 'deliver' ),
@@ -248,7 +249,7 @@ function register_my_post_types() {
 add_action( 'init', 'register_my_post_types' );
 
 
-show_admin_bar( false );
+show_admin_bar( false ); // ну это для продакшена, конечно же, нужно будет удалить
 
 /**
  * Implement the Custom Header feature.

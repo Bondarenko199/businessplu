@@ -51,11 +51,13 @@
 						) ); ?>
                     </div>
 
+                    <?php // эту шутку лучше не убивать, она бывает полезна ?>
 <!--					--><?php //wp_link_pages( array(
 //						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'businessplus' ),
 //						'after'  => '</div>',
 //					) );
 //					?>
+                    <?php // у тебя нет single content темплейта и эта кнопка на синг посте тоже показывается ?>
                     <a href="<?php the_permalink() ?>" class="main-button float-right clearfix"><?php echo get_theme_mod( 'post_button_text' ) ?></a>
                 </div>
             </div>
